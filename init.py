@@ -31,4 +31,10 @@ def backprop(z1,a1,z2,a2,w2,x,y):
     dz1=np.dot(w2.T,a1)*derv_relu(z1)
     dw1=np.dot(dz1,x.T)/m
     db1= np.sum(dz1,axis=1,keepdims=True)/m
-    return dw1,db1,dz1,dw2,db2,dz2
+    return dw1,db1,dw2,db2
+def update_parameters(w1,b1,w2,b2,dw1,db1,dw2,db2,alpha):
+    w1-=alpha*dw1
+    w2-=alpha*dw2
+    b1-=alpha*db1
+    b2-=alpha*db2
+    return w1,b1,w2,b2
