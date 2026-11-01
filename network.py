@@ -7,4 +7,5 @@ y_train = mnist.train_labels()
 X_test  = mnist.test_images()
 y_test  = mnist.test_labels()
 
-print(X_train.shape, X_test.shape)
+X_train = X_train.reshape(X_train.shape[0], -1)  
+m, n = X_train.shape                               # m = 60000, n = 784
