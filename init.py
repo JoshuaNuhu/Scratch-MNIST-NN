@@ -40,7 +40,10 @@ def update_parameters(w1,b1,w2,b2,dw1,db1,dw2,db2,alpha):
     b1-=alpha*db1
     b2-=alpha*db2
     return w1,b1,w2,b2
-def gradient_descent(x,y,y_pred,iteration, alpha):
+def prediction(a2):
+    return np.argmax(a2,0)
+
+def gradient_descent(x,y,iteration, alpha):
     w1,b1,w2,b2= initilise_parameters()
     for i in range(iteration):
         z1,a1,z2,a2=forward_pass(w1,b1,w2,b2,x)
@@ -48,7 +51,7 @@ def gradient_descent(x,y,y_pred,iteration, alpha):
         w1,b1,w2,b2=update_parameters(w1,b1,w2,b2,dw1,db1,dw2,db2,alpha)
         if i %10 == 0:
             print("iteration",i)
-            print("Cost:",compute_cost(y_pred,y))
-            print("Accuracy:",accuracy_score(y,y_pred))
+            print("Cost:",compute_cost(prediction(a2),y))
+            print("Accuracy:",accuracy_score(y,prediction(a2)))
     return w1,b1,w2,b2
             
