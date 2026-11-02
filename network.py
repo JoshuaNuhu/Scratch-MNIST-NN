@@ -1,6 +1,6 @@
 import mnist
 import numpy as np
-from init import gradient_descent,forward_pass,prediction
+from nn_functions import gradient_descent,forward_pass,prediction
 mnist.datasets_url = 'https://ossci-datasets.s3.amazonaws.com/mnist/'
 
 # X_train = mnist.train_images()
